@@ -5,18 +5,18 @@ body {
   position: relative;
   width: 640px;
   height: 640px;
-  font-family: sans-serif;
+  font-family: 'Recursive', sans-serif;
 }
 
 h1 {
-font-family: 'Helvetica';
+font-family: 'Recursive', sans-serif;
 font-style: normal;
-font-weight: 400;
 font-size: 70px;
 line-height: 67px;
 text-align: center;
 letter-spacing: -0.05em;
 color: #232323;
+/* text-transform: uppercase; */
 }
 
 h2 {

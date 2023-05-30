@@ -1,6 +1,7 @@
 let video;
 let poseNet;
 let poses = [];
+let variable;
 
 function setup() {
   createCanvas(640, 640);
@@ -12,6 +13,7 @@ function setup() {
   });
   // Hide the video element, and just show the canvas
   video.hide();
+  variable = select('h1');
 }
 
 function modelReady() {
@@ -21,7 +23,7 @@ function modelReady() {
 function draw() {
   // image(video, 0, 0, width, height);
   // drawKeypoints();
-  changeColor();
+  changeFontWeight();
 }
 
 // A function to draw ellipses over the detected keypoints (for testing)
@@ -42,21 +44,14 @@ function draw() {
 //   }
 // }
 
-function changeColor() {
+function changeFontWeight() {
+
   for (let i = 0; i < poses.length; i++) {
     let pose = poses[i].pose;
-  let nosePosition = pose.keypoints[0];
-        let rightHand = pose.keypoints[10];
+    let nosePosition = pose.keypoints[0];
         
-        console.log(nosePosition.position.x)
-        if (nosePosition.position.x < 320) {
-          // ellipse(200,200,200,200)
-          // fill(255,0,0)
-          background('#FD3FEA');
-        } else {
-          // ellipse(200,200,200,200)
-          // fill(0,255,0)
-          background('#FD613F');
-        }
+    let nosePositionValueX= nosePosition.position.x
+    variable.style('font-weight', 300+nosePosition.position.x);
+    
   }
 }
